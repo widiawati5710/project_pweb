@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQuery</title>
+    <script src="js/jquery-3.7.1.js"></script>     <!-- File jQuery -->
+    <script>
+        $(document).ready(function () {
+            // Awalnya tombol "SHOW" disembunyikan
+            $(".tampil").hide();
+            // Klik tombol "HIDE"
+            $(".sembunyi").click(function () {
+                $(".uniku").hide("slow"); // Menyembunyikan teks
+                $(".tampil").show();     // Menampilkan tombol "SHOW"
+                $(".sembunyi").hide();   // Menyembunyikan tombol "HIDE"
+            });
+            // Klik tombol "SHOW"
+            $(".tampil").click(function () {
+                $(".uniku").show("slow"); // Menampilkan teks
+                $(".sembunyi").show();    // Menampilkan tombol "HIDE"
+                $(".tampil").hide();      // Menyembunyikan tombol "SHOW"
+            });
+        });
+    </script>
+</head>
+<body>
+    <button class="sembunyi">HIDE</button>
+    <button class="tampil">SHOW</button>
+    <div class="uniku">UNIVERSITAS KUNINGAN</div>
+</body>
+</html>

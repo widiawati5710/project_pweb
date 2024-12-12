@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Pemesanan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Form Data Pemesanan</h2>
+        <form>
+            <div class="form-group">
+                <label for="idPemesanan">Id Pemesanan:</label>
+                <input type="text" id="idPemesanan" value="1" readonly>
+            </div>
+            <div class="form-group">
+                <label for="namaPemesan">Nama Pemesan:</label>
+                <input type="text" id="namaPemesan" placeholder="Nama Pemesan">
+            </div>
+            <div class="form-group">
+                <label for="nomorIdentitas">Nomor Identitas:</label>
+                <input type="text" id="nomorIdentitas" placeholder="Nomor Identitas">
+            </div>
+            <div class="form-group">
+                <label for="tipeKamar">Tipe Kamar:</label>
+                <select id="tipeKamar">
+                    <option value="">--Pilih--</option>
+                    <option value="standar">STANDAR</option>
+                    <option value="deluxe">DELUXE</option>
+                    <option value="family">FAMILY</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="harga">Harga:</label>
+                <input type="text" id="harga" placeholder="Harga">
+            </div>
+            <div class="form-group">
+                <label for="tanggalPesan">Tanggal Pesan:</label>
+                <input type="date" id="tanggalPesan">
+            </div>
+            <div class="form-group">
+                <label for="durasiMenginap">Durasi Menginap:</label>
+                <input type="number" id="durasiMenginap" placeholder="Hari"> Hari
+            </div>
+            <div class="form-group">
+                <label>Termasuk Breakfast:</label>
+                <input type="checkbox" id="termasukBreakfast" value="ya"> Ya
+            </div>
+            <div class="form-group">
+                <label for="totalBayar">Total Bayar:</label>
+                <input type="text" id="totalBayar" placeholder="Total Bayar">
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn-simpan">Simpan</button>
+                <button type="reset" class="btn-batal">Batal</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

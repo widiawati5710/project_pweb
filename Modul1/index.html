@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Hotel</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        /* Header */
+        header {
+            background-color: black;
+            color: white;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img.logo {
+            width: 120px;
+            height: 120px;
+        }
+        header .title {
+            flex-grow: 1;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        header img.header-image {
+            width: 250px;
+            height: 100px;
+        }
+        /* Navigation Menu */
+        nav {
+            display: flex; 
+            background-color: #333;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav li {
+            position: relative;
+        }
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+        }
+        nav li:hover > ul {
+            display: block;
+        }
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            padding: 10px;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+        }
+        nav ul ul ul {
+            left: 100%;
+            top: 0;
+        }
+        nav ul ul a:hover {
+            background-color: #555;
+        }
+        /* Main Content Layout */
+        .container {
+            display: flex;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        /* Sidebar */
+        .sidebar {
+            width: 25%;
+            padding-right: 20px;
+        }
+        .sidebar h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: black;
+            text-align: center;
+        }
+        .sidebar iframe {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+        /* Main Content for Rooms */
+        .main-content {
+            width: 75%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .main-content img {
+            width: 100%;
+            height: auto;
+        }
+        .room {
+            width: 31%;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <img src="gambar/que.png" alt="Logo Best Hotel" class="logo">
+    <div class="title">BEST HOTEL</div>
+    <img src="gambar/header.PNG" alt="Header Image" class="header-image">
+</header>
+
+<!-- Navigation Menu -->
+<nav>
+    <ul>
+        <li><a href="M1-TUGAS.html">Home</a></li> 
+        <li><a href="kamar.html">Kamar</a></li>
+        <li><a href="fasilitas.html">Fasilitas</a>
+            <ul>
+                <li><a href="#petualangan-alam">Petualangan Alam</a></li>
+                <li><a href="#kolam-renang">Kolam Renang</a>
+                    <ul>
+                        <li><a href="#sumber-air-panas">Sumber Air Panas</a></li>
+                        <li><a href="#kolam-anak-dewasa">Kolam Renang Anak & Dewasa</a>
+                            <ul>
+                                <li><a href="#reguler">Reguler</a></li>
+                                <li><a href="#premium">Premium</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#pusat-kebugaran">Pusat Kebugaran</a></li>
+                <li><a href="#ruang-rapat">Ruang Rapat</a></li>
+            </ul>
+        </li>
+        <li><a href="pemesanan.html">Pemesanan</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <div class="sidebar">
+        <h2>Video Promosi</h2>
+        <iframe src="https://www.youtube.com/embed/samplevideo1" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/samplevideo2" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/samplevideo3" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="main-content">
+        <div class="room">
+            <img src="gambar/standard room.jpeg" alt="Room 1">
+        </div>
+        <div class="room">
+            <img src="gambar/superior room.jpeg" alt="Room 2">
+        </div>
+        <div class="room">
+            <img src="gambar/deluxe room.jpg" alt="Room 3">
+        </div>
+        <div class="room">
+            <img src="gambar/suite room.jpeg" alt="Room 4">
+        </div>
+        <div class="room">
+            <img src="gambar/presidential room.jpeg" alt="Room 5">
+        </div>
+        <div class="room">
+            <img src="gambar/single room.jpeg" alt="Room 6">
+        </div>
+        <div class="room">
+            <img src="gambar/twin room.jpg" alt="Room 7">
+        </div>
+        <div class="room">
+            <img src="gambar/double room.jpg" alt="Room 8">
+        </div>
+        <div class="room">
+            <img src="gambar/family room.jpeg" alt="Room 9">
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Queen Best Hotel</p>
+</footer>
+
+</body>
+</html>

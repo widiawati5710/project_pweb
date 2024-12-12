@@ -1,0 +1,10 @@
+body {
+    background-color: white;
+}
+
+.teks {
+   background-color:blue; 
+   color:green;
+    font-weight: bold;
+     letter-spacing: -2px;
+}

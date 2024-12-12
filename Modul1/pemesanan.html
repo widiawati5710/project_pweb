@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Hotel - Pemesanan</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        /* Form Styles */
+        .form-container, .table-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2, .table-container h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: black;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .form-group button:hover {
+            background-color: #555;
+        }
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Form Tambah Data Pemesanan -->
+<div class="form-container">
+    <h2>Tambah Data Pemesanan</h2>
+    <form id="formTambahPemesanan">
+        <div class="form-group">
+            <label for="id-pemesanan">ID</label>
+            <input type="text" id="id-pemesanan" name="id-pemesanan" required>
+        </div>
+        <div class="form-group">
+            <label for="tanggal-pemesanan">Tanggal Pemesanan</label>
+            <input type="date" id="tanggal-pemesanan" name="tanggal-pemesanan" required>
+        </div>
+        <div class="form-group">
+            <label for="pemesan">Pemesan</label>
+            <input type="text" id="pemesan" name="pemesan" required>
+        </div>
+        <div class="form-group">
+            <label for="jenis-kamar">Jenis Kamar</label>
+            <input type="text" id="jenis-kamar" name="jenis-kamar" required>
+        </div>
+        <div class="form-group">
+            <label for="check-in">Check-In</label>
+            <input type="date" id="check-in" name="check-in" required>
+        </div>
+        <div class="form-group">
+            <label for="check-out">Check-Out</label>
+            <input type="date" id="check-out" name="check-out" required>
+        </div>
+        <div class="form-group">
+            <label for="fasilitas">Fasilitas</label>
+            <select id="fasilitas" name="fasilitas" required>
+                <option value="Ya">Ya</option>
+                <option value="Tidak">Tidak</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="button" onclick="tambahDataPemesanan()">Tambah Data Pemesanan</button>
+        </div>
+    </form>
+</div>
+
+<!-- Tabel untuk Menampilkan Data Pemesanan -->
+<div class="table-container">
+    <h2>Data Pemesanan</h2>
+    <table id="dataPemesananTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tanggal Pemesanan</th>
+                <th>Pemesan</th>
+                <th>Jenis Kamar</th>
+                <th>Check-In</th>
+                <th>Check-Out</th>
+                <th>Fasilitas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data pemesanan akan ditambahkan di sini -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function tambahDataPemesanan() {
+        // Mengambil nilai input dari form
+        const idPemesanan = document.getElementById('id-pemesanan').value;
+        const tanggalPemesanan = document.getElementById('tanggal-pemesanan').value;
+        const pemesan = document.getElementById('pemesan').value;
+        const jenisKamar = document.getElementById('jenis-kamar').value;
+        const checkIn = document.getElementById('check-in').value;
+        const checkOut = document.getElementById('check-out').value;
+        const fasilitas = document.getElementById('fasilitas').value;
+
+        // Mengambil tabel dan menambahkan baris baru
+        const table = document.getElementById('dataPemesananTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+
+        // Menambahkan data ke kolom
+        newRow.insertCell(0).textContent = idPemesanan;
+        newRow.insertCell(1).textContent = tanggalPemesanan;
+        newRow.insertCell(2).textContent = pemesan;
+        newRow.insertCell(3).textContent = jenisKamar;
+        newRow.insertCell(4).textContent = checkIn;
+        newRow.insertCell(5).textContent = checkOut;
+        newRow.insertCell(6).textContent = fasilitas;
+
+        // Alert untuk notifikasi penambahan data
+        alert("Data pemesanan berhasil ditambahkan!");
+
+        // Reset form setelah submit
+        document.getElementById('formTambahPemesanan').reset();
+    }
+</script>
+
+</body>
+</html>

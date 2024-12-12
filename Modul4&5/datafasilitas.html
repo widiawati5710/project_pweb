@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Fasilitas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Form Data Fasilitas</h2>
+        <form id="formFasilitas">
+            <div class="form-group">
+                <label for="idFasilitas">ID Fasilitas:</label>
+                <input type="text" id="idFasilitas" placeholder="ID Fasilitas" required>
+            </div>
+            <div class="form-group">
+                <label for="namaFasilitas">Nama Fasilitas:</label>
+                <input type="text" id="namaFasilitas" placeholder="Nama Fasilitas" required>
+            </div>
+            <div class="form-group">
+                <label for="hargaWeekend">Harga Weekend:</label>
+                <input type="number" id="hargaWeekend" placeholder="Harga Weekend" required>
+            </div>
+            <div class="form-group">
+                <label for="hargaWeekday">Harga Weekday:</label>
+                <input type="number" id="hargaWeekday" placeholder="Harga Weekday" required>
+            </div>
+            <div class="form-group">
+                <label for="kuota">Kuota: </label>
+                <input type="number" id="kuota" placeholder="Kuota" required>
+            </div>
+            <div class="form-group">
+                <label for="jamBuka">Jam Buka:</label>
+                <input type="time" id="jamBuka" required>
+            </div>
+            <div class="form-group">
+                <label for="jamTutup">Jam Tutup:</label>
+                <input type="time" id="jamTutup" required>
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn-simpan">Simpan</button>
+                <button type="reset" class="btn-batal">Batal</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        // Validasi Form Tambah Data Fasilitas
+        document.getElementById('formFasilitas').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah form dari submit otomatis
+            let isValid = true;
+            // Validasi ID Fasilitas
+            const idFasilitas = document.getElementById('idFasilitas');
+            if (idFasilitas.value.trim() === '') {
+                alert('ID Fasilitas tidak boleh kosong!');
+                isValid = false;
+            }
+            // Validasi Nama Fasilitas
+            const namaFasilitas = document.getElementById('namaFasilitas');
+            if (namaFasilitas.value.trim() === '') {
+                alert('Nama Fasilitas tidak boleh kosong!');
+                isValid = false;
+            }
+            // Validasi Harga Weekend
+            const hargaWeekend = document.getElementById('hargaWeekend');
+            if (hargaWeekend.value.trim() === '' || hargaWeekend.value <= 0) {
+                alert('Masukkan harga weekend yang valid!');
+                isValid = false;
+            }
+            // Validasi Harga Weekday
+            const hargaWeekday = document.getElementById('hargaWeekday');
+            if (hargaWeekday.value.trim() === '' || hargaWeekday.value <= 0) {
+                alert('Masukkan harga weekday yang valid!');
+                isValid = false;
+            }
+            // Validasi Kuota
+            const kuota = document.getElementById('kuota');
+            if (kuota.value.trim() === '' || kuota.value <= 0) {
+                alert('Masukkan kuota yang valid!');
+                isValid = false;
+            }
+            // Validasi Jam Buka dan Jam Tutup
+            const jamBuka = document.getElementById('jamBuka');
+            const jamTutup = document.getElementById('jamTutup');
+            if (jamBuka.value >= jamTutup.value) {
+                alert('Jam buka harus lebih awal dari jam tutup!');
+                isValid = false;
+            }
+            // Jika semua validasi berhasil
+            if (isValid) {
+                // Menampilkan alert sukses
+                alert('Data fasilitas berhasil ditambahkan!');   
+                // Submit form
+                this.submit();
+            }
+        });
+    </script>
+</body>
+</html>

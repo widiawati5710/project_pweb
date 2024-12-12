@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Kamar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Form Data Kamar</h2>
+        <form>
+            <div class="form-group">
+                <label for="idKamar">ID Kamar:</label>
+                <input type="text" id="idKamar" placeholder="ID Kamar" required>
+            </div>
+            <div class="form-group">
+                <label for="gambarRuangan">Gambar Ruangan:</label>
+                <input type="file" id="gambarRuangan" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="jenisKamar">Jenis Kamar:</label>
+                <select id="jenisKamar" required>
+                    <option value="">--Pilih--</option>
+                    <option value="standar">Standar</option>
+                    <option value="deluxe">Deluxe</option>
+                    <option value="family">Family</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hargaKamar">Harga:</label>
+                <input type="number" id="hargaKamar" placeholder="Harga Kamar" required>
+            </div>
+            <div class="form-group">
+                <label for="fasilitas">Fasilitas:</label>
+                <textarea id="fasilitas" placeholder="Deskripsi Fasilitas" rows="4" required>
+                    
+                </textarea>
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn-simpan">Simpan</button>
+                <button type="reset" class="btn-batal">Batal</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

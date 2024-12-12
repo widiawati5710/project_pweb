@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Hotel</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        /* Form Styles */
+        .form-container, .table-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2, .table-container h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: black;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .form-group button:hover {
+            background-color: #555;
+        }
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Form Tambah Data Fasilitas -->
+<div class="form-container">
+    <h2>Tambah Data Fasilitas</h2>
+    <form id="formTambahFasilitas">
+        <div class="form-group">
+            <label for="id-fasilitas">ID </label>
+            <input type="text" id="id-fasilitas" name="id-fasilitas" required>
+        </div>
+        <div class="form-group">
+            <label for="nama-fasilitas">Nama </label>
+            <input type="text" id="nama-fasilitas" name="nama-fasilitas" required>
+        </div>
+        <div class="form-group">
+            <label for="deskripsi-fasilitas">Fasilitas</label>
+            <textarea id="deskripsi-fasilitas" name="deskripsi-fasilitas" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="harga-weekend">Harga Weekend</label>
+            <input type="number" id="harga-weekend" name="harga-weekend" required>
+        </div>
+        <div class="form-group">
+            <label for="harga-weekday">Harga Weekday</label>
+            <input type="number" id="harga-weekday" name="harga-weekday" required>
+        </div>
+        <div class="form-group">
+            <label for="kuota">Kuota</label>
+            <input type="number" id="kuota" name="kuota" required>
+        </div>
+        <div class="form-group">
+            <label for="jam-buka">Jam Buka</label>
+            <input type="time" id="jam-buka" name="jam-buka" required>
+        </div>
+        <div class="form-group">
+            <label for="jam-tutup">Jam Tutup</label>
+            <input type="time" id="jam-tutup" name="jam-tutup" required>
+        </div>
+        <div class="form-group">
+            <button type="button" onclick="tambahDataFasilitas()">Tambah Data Fasilitas</button>
+        </div>
+    </form>
+</div>
+
+<!-- Tabel untuk Menampilkan Data Fasilitas -->
+<div class="table-container">
+    <h2>Data Fasilitas</h2>
+    <table id="dataFasilitasTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Deskripsi</th>
+                <th>Harga Weekend</th>
+                <th>Harga Weekday</th>
+                <th>Kuota</th>
+                <th>Jam Buka</th>
+                <th>Jam Tutup</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data fasilitas akan ditambahkan di sini -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function tambahDataFasilitas() {
+        // Mengambil nilai input dari form
+        const idFasilitas = document.getElementById('id-fasilitas').value;
+        const namaFasilitas = document.getElementById('nama-fasilitas').value;
+        const deskripsiFasilitas = document.getElementById('deskripsi-fasilitas').value;
+        const hargaWeekend = document.getElementById('harga-weekend').value;
+        const hargaWeekday = document.getElementById('harga-weekday').value;
+        const kuota = document.getElementById('kuota').value;
+        const jamBuka = document.getElementById('jam-buka').value;
+        const jamTutup = document.getElementById('jam-tutup').value;
+
+        // Mengambil tabel dan menambahkan baris baru
+        const table = document.getElementById('dataFasilitasTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+
+        // Menambahkan data ke kolom
+        newRow.insertCell(0).textContent = idFasilitas;
+        newRow.insertCell(1).textContent = namaFasilitas;
+        newRow.insertCell(2).textContent = deskripsiFasilitas;
+        newRow.insertCell(3).textContent = hargaWeekend;
+        newRow.insertCell(4).textContent = hargaWeekday;
+        newRow.insertCell(5).textContent = kuota;
+        newRow.insertCell(6).textContent = jamBuka;
+        newRow.insertCell(7).textContent = jamTutup;
+
+        // Alert untuk notifikasi penambahan data
+        alert("Data fasilitas berhasil ditambahkan!");
+
+        // Reset form setelah submit
+        document.getElementById('formTambahFasilitas').reset();
+    }
+</script>
+
+</body>
+</html>

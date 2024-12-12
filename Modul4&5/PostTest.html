@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Gaji</title>
+    <style>
+        /* Mengatur tata letak dan desain form */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            width: 320px;
+            padding: 20px;
+            border: 2px dashed #000;
+            background-color: #fff;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            border: 1px solid #000;
+        }
+        .form-row label {
+            width: 40%;
+            padding: 8px;
+            font-weight: bold;
+            background-color: #f9f9f9;
+            border-right: 1px solid #000;
+            box-sizing: border-box;
+        }
+        .form-row input[type="text"],
+        .form-row select {
+            width: 60%;
+            padding: 8px;
+            border: none;
+            box-sizing: border-box;
+        }
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        input[type="button"], input[type="reset"] {
+            width: 48%;
+            padding: 8px;
+            cursor: pointer;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+        input[type="text"]:read-only {
+            background-color: #e9e9e9;
+        }
+    </style>
+    <script>
+        function hit() {
+            // Mengambil nilai dari form
+            var golongan = document.form1.gol.value;
+            var jumlahAnak = parseInt(document.form1.anak.value) || 0;
+            var gajiPokok = 0;
+            var persenTunjangan = 0;
+
+            // Menentukan gaji pokok dan persen tunjangan berdasarkan golongan
+            if (golongan === "I") {
+                gajiPokok = 250000;
+                persenTunjangan = 0.05;
+            } else if (golongan === "II") {
+                gajiPokok = 300000;
+                persenTunjangan = 0.10;
+            } else if (golongan === "III") {
+                gajiPokok = 350000;
+                persenTunjangan = 0.15;
+            }
+
+            // Menghitung tunjangan dan gaji bersih
+            var tunjangan = (jumlahAnak * gajiPokok) * persenTunjangan;
+            var gajiBersih = gajiPokok + tunjangan;
+
+            // Menampilkan hasil perhitungan
+            document.form1.gapok.value = gajiPokok;
+            document.form1.tunjangan.value = tunjangan;
+            document.form1.gaji.value = gajiBersih;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>PERHITUNGAN GAJI</h2>
+        <form name="form1">
+            <div class="form-row">
+                <label>Golongan:</label>
+                <select name="gol">
+                    <option value="">Pilih</option>
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label>Jumlah Anak:</label>
+                <input type="text" name="anak" size="10" maxlength="10">
+            </div>
+
+            <div class="form-buttons">
+                <input type="button" name="hitung" value="Hitung" onclick="hit()">
+                <input type="reset" name="Batal" value="Cancel">
+            </div>
+
+            <div class="form-row">
+                <label>Gaji Pokok:</label>
+                <input type="text" name="gapok" readonly>
+            </div>
+
+            <div class="form-row">
+                <label>Tunjangan:</label>
+                <input type="text" name="tunjangan" readonly>
+            </div>
+
+            <div class="form-row">
+                <label>Gaji Bersih:</label>
+                <input type="text" name="gaji" readonly>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
